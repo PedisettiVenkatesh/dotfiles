@@ -45,6 +45,11 @@ call plug#begin()
 
 " Make sure you use single quotes
 
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'vim-airline/vim-airline'
+
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 "Plug 'junegunn/vim-easy-align'
 
