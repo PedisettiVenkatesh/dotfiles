@@ -112,6 +112,8 @@ export LANG=en_US.UTF-8
 alias zshconfig="vi ~/.zshrc"
 alias ohmyzsh="vi ~/.oh-my-zsh"
 alias tmux='tmux -u'
+alias c='clear'
+alias x='exit'
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
