@@ -110,14 +110,16 @@ export LANG=en_US.UTF-8
 # For a full list of active aliases, run `alias`.
 # Example aliases
 alias zshconfig="vi ~/.zshrc"
+alias bashconfig='vi ~/.bashrc'
 alias ohmyzsh="vi ~/.oh-my-zsh"
+alias la='ls -A'
 alias tmux='tmux -u'
 alias t='tmux -u'
 alias c='clear'
 alias x='exit'
 alias s='source'
 alias v='vi'
-alias bashconfig='vi ~/.bashrc'
+alias gaa='git add .'
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
