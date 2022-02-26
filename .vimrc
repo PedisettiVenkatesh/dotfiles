@@ -53,7 +53,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-syntastic/syntastic'
     Plug 'frazrepo/vim-rainbow'
 
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
     " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align

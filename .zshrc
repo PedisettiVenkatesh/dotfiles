@@ -119,6 +119,7 @@ alias c='clear'
 alias x='exit'
 alias s='source'
 alias v='vi'
+alias vconfig='v ~/.vimrc'
 alias gaa='git add .'
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
