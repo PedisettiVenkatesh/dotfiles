@@ -119,6 +119,7 @@ alias c='clear'
 alias x='exit'
 alias s='source'
 alias v='vi'
+alias nv='nvim'
 alias vconfig='v ~/.vimrc'
 alias gaa='git add .'
 
