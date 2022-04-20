@@ -98,6 +98,7 @@ alias s='source'
 alias t='tmux -u'
 alias bashconfig='vi ~/.bashrc'
 alias gaa='git add .'
+alias matlab='~/mat/matlab'
 
 
 # Add an "alert" alias for long running commands.  Use like so:

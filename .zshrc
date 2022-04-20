@@ -122,6 +122,7 @@ alias v='vi'
 alias nv='nvim'
 alias vconfig='v ~/.vimrc'
 alias gaa='git add .'
+alias matlab='~/mat/matlab'
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
