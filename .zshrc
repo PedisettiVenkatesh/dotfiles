@@ -122,7 +122,6 @@ alias v='vi'
 alias nv='nvim'
 alias vconfig='v ~/.vimrc'
 alias gaa='git add .'
-alias matlab='~/mat/matlab'
 
 alias t-start='sudo service transmission-daemon start'
 alias t-stop='sudo service transmission-daemon stop'
