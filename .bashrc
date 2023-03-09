@@ -104,6 +104,7 @@ alias s='source'
 alias t='tmux -u'
 alias bashconfig='vi ~/.bashrc'
 alias gaa='git add .'
+alias matlab='./MATLAB/R2022b/matlab'
 
 alias t-start='sudo service transmission-daemon start'
 alias t-stop='sudo service transmission-daemon stop'
