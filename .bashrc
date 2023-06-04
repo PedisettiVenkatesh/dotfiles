@@ -97,13 +97,25 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias tmux='tmux -u'
-alias x='exit'
-alias c='clear'
-alias s='source'
-alias t='tmux -u'
+
 alias bashconfig='vi ~/.bashrc'
+alias zshconfig="vi ~/.zshrc"
+alias ohmyzsh="vi ~/.oh-my-zsh"
+alias vconfig='v ~/.vimrc'
+
+
+alias tmux='tmux -u'
+alias t='tmux -u'
+
+alias c='clear'
+alias x='exit'
+alias s='source'
+
+alias v='vi'
+alias nv='nvim'
+
 alias gaa='git add .'
+
 alias matlab='~/MATLAB/R2023a/matlab'
 
 alias t-start='sudo service transmission-daemon start'

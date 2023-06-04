@@ -109,19 +109,27 @@ export LANG=en_US.UTF-8
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 # Example aliases
-alias zshconfig="vi ~/.zshrc"
-alias bashconfig='vi ~/.bashrc'
-alias ohmyzsh="vi ~/.oh-my-zsh"
+alias ll='ls -alF'
 alias la='ls -A'
+alias l='ls -CF'
+
+alias bashconfig='vi ~/.bashrc'
+alias zshconfig="vi ~/.zshrc"
+alias ohmyzsh="vi ~/.oh-my-zsh"
+alias vconfig='v ~/.vimrc'
+
 alias tmux='tmux -u'
 alias t='tmux -u'
+
 alias c='clear'
 alias x='exit'
 alias s='source'
+
 alias v='vi'
 alias nv='nvim'
-alias vconfig='v ~/.vimrc'
+
 alias gaa='git add .'
+
 alias matlab='~/MATLAB/R2023a/matlab'
 
 alias t-start='sudo service transmission-daemon start'
