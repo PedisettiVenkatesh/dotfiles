@@ -141,6 +141,8 @@ alias s='source'
 alias v='vi'
 alias nv='nvim'
 
+alias python='python3'
+
 alias gaa='git add .'
 
 alias matlab='~/MATLAB/R2023a/matlab'
