@@ -31,7 +31,7 @@ inoremap <Nul> <c-n>set number
 map <f12> :!ctags -R .<cr>
 
 " start vi with NERDTree
-autocmd VimEnter * NERDTree | wincmd p
+"autocmd VimEnter * NERDTree | wincmd p
 
 
 call plug#begin('~/.vim/plugged')
