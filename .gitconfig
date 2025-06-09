@@ -1,5 +1,5 @@
 [user]
-	name = vYktr
+	name = Venkatesh
 	email = 75016701+PedisettiVenkatesh@users.noreply.github.com
 [init]
 	defaultBranch = main
@@ -10,5 +10,5 @@
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [core]
-	editor = vi
+	editor = code --wait
 	autocrlf = input

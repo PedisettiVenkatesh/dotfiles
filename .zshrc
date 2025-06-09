@@ -1,132 +1,111 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# --- Powerlevel10k Instant Prompt (keep at the very top for performance) ---
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
+# --- Zinit Setup ---
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Install Zinit if missing
+if [ ! -d "$ZINIT_HOME" ]; then
+  mkdir -p "$(dirname "$ZINIT_HOME")"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-#export LC_ALL=en_IN.UTF-8
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# --- Powerlevel10k Theme ---
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# --- Plugins ---
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit ice wait"0" atload"_zsh_autosuggest_start"
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+zinit light jeffreytse/zsh-vi-mode
+zinit light junegunn/fzf
+zinit light marlonrichert/zsh-autocomplete
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# --- Oh-My-Zsh snippets ---
+zinit ice wait"0"
+zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/git/git.plugin.zsh
+zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
+zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/docker/docker.plugin.zsh
+zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/history/history.plugin.zsh
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# --- Cursor Settings ---
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
+ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+# --- Completion ---
+autoload -Uz compinit
+compinit
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+# --- History Configuration ---
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+setopt APPEND_HISTORY INC_APPEND_HISTORY HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS HIST_FIND_NO_DUPS
+setopt HIST_REDUCE_BLANKS SHARE_HISTORY
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    git
-    docker
-    asdf
-    zsh-autosuggestions
-    zsh-completions 
-    zsh-history-substring-search 
-    zsh-syntax-highlighting 
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
+# --- Locale ---
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# --- zsh-autocomplete Customization ---
+zstyle ':autocomplete:*' min-input 1
+zstyle ':autocomplete:*' default-context history-incremental-search-backward
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# --- fzf-tab Configuration ---
+zstyle ':completion:*' menu select
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' fzf-preview 'bat --style=numbers --color=always $realpath'
+zstyle ':completion:*:*:*:*:files' command fzf-file-preview
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-# Example aliases
+fzf-file-preview() {
+  local file="$1"
+  [[ -f "$file" ]] && bat --style=numbers --color=always "$file" || head -n 20 "$file"
+}
+
+# --- Fuzzy Search History (Ctrl+R) ---
+fzf-history-widget() {
+  local selected=$(fc -rl 1 | awk '{$1=""; print substr($0,2)}' | \
+    fzf --height 40% --reverse --inline-info --prompt="History ➜ " --no-sort)
+  if [[ -n "$selected" ]]; then
+    LBUFFER="$selected"
+    zle redisplay
+  fi
+}
+zle -N fzf-history-widget
+bindkey '^R' fzf-history-widget
+
+# --- History Arrows (↑ ↓) with Substring Search ---
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey "${terminfo[kcuu1]}" history-substring-search-up
+bindkey "${terminfo[kcud1]}" history-substring-search-down
+
+# --- Aliases ---
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias c='clear'
+alias x='exit'
+alias s='source'
+alias su='sudo'
+alias sz='source ~/.zshrc'
 
-alias bashconfig='vi ~/.bashrc'
-alias zshconfig="vi ~/.zshrc"
-alias ohmyzsh="vi ~/.oh-my-zsh"
+alias bashconfig='v ~/.bashrc'
+alias zshconfig="v ~/.zshrc"
+alias ohmyzsh="v ~/.oh-my-zsh"
 alias vconfig='v ~/.vimrc'
 
 alias tmux='tmux -u'
@@ -134,30 +113,28 @@ alias t='tmux -u'
 alias ta='t a'
 alias tat='t a -t'
 
-alias c='clear'
-alias x='exit'
-alias s='source'
+alias bat='batcat'
+alias v='nvim'
+alias o='code .'
+alias e='xdg-open .'
 
-alias v='vi'
-alias nv='nvim'
+alias d='docker'
+alias dstart='echo "sudo systemctl start docker" && sudo systemctl start docker'
+alias dstatus='echo "sudo systemctl status docker" && sudo systemctl status docker'
+alias dstop='echo "sudo systemctl stop docker" && sudo systemctl stop docker'
 
 alias python='python3'
+alias py='python3'
+alias pip='pip3'
+alias pips='pipenv shell'
 
-alias gaa='git add .'
+# --- Zoxide (Directory Jumper) ---
+eval "$(zoxide init zsh)"
 
-alias matlab='~/MATLAB/R2023a/matlab'
+# --- Node Version Manager (NVM) ---
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
-alias t-start='sudo service transmission-daemon start'
-alias t-stop='sudo service transmission-daemon stop'
-alias t-reload='sudo service transmission-daemon reload'
-alias t-list='transmission-remote -n 'transmission:transmission' -l'
-alias t-basicstats='transmission-remote -n 'transmission:transmission' -st'
-alias t-fullstats='transmission-remote -n 'transmission:transmission' -si'
-
-#source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# --- pipx path ---
+export PATH="$PATH:$HOME/.local/bin"

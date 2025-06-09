@@ -1,0 +1,147 @@
+# set shell
+set-option -g default-shell /usr/bin/zsh
+set-option -g default-terminal screen-256color
+
+# Send prefix
+set-option -g prefix C-Space
+unbind-key C-a
+bind-key C-Space send-prefix
+ 
+# Use Alt-arrow keys to switch panes
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+ 
+# Shift arrow to switch windows
+bind -n S-Left previous-window
+bind -n S-Right next-window
+ 
+# Mouse mode
+setw -g mouse on
+ 
+# Set easier window split keys
+bind-key v split-window -h
+bind-key h split-window -v
+
+# Start windows and panes at 1, not 0
+set -g base-index 1
+setw -g pane-base-index 1
+ 
+# Easy config reload
+bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded."
+
+# List of plugins
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'git@github.com:user/plugin'
+# set -g @plugin 'git@bitbucket.com:user/plugin'
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'erikw/tmux-powerline'
+
+#DRACULA POWERLINE
+#set -g @plugin 'dracula/tmux'
+# available plugins: battery, cpu-usage, git, gpu-usage, ram-usage, network, network-bandwidth, network-ping, weather, time
+#set -g @dracula-plugins "git cpu-usage gpu-usage ram-usage battery time"
+# available colors: white, gray, dark_gray, light_purple, dark_purple, cyan, green, orange, red, pink, yellow
+# set -g @dracula-[plugin-name]-colors "[background] [foreground]"
+#set -g @dracula-colors "black gray"
+#set -g @dracula-cpu-usage-colors "pink dark_gray"
+#set -g @dracula-git-colord "gray white" 
+# for left
+#set -g @dracula-show-left-sep 
+# for right symbol (can set any symbol you like as seperator)
+#set -g @dracula-show-right-sep 
+#set -g @dracula-show-powerline true
+# the default is 5, it can accept any number
+#set -g @dracula-refresh-rate 5
+# it can accept `session`, `smiley`, `window`, or any character.
+#set -g @dracula-show-left-icon session
+# default is 1, it can accept any number and 0 disables padding.
+#set -g @dracula-left-icon-padding 0
+#set -g @dracula-right-padding 0
+#set -g @dracula-border-contrast true
+#set -g @dracula-cpu-usage-label "CPU"
+#set -g @dracula-cpu-display-load true
+#set -g @dracula-gpu-usage-label "GPU"
+#set -g @dracula-ram-usage-label "RAM"
+#set -g @dracula-ping-server "duckduckgo.com"
+#set -g @dracula-ping-rate 5
+#set -g @dracula-show-timezone false
+#set -g @dracula-day-month true
+#set -g @dracula-military-time true
+#set -g @dracula-git-disable-status true
+# default is ✓. Avoid using non unicode characters that bash uses like $, * and ! 
+#set -g @dracula-git-show-current-symbol ✓
+# default is unicode !. Avoid bash special characters 
+#set -g @dracula-git-show-diff-symbol !
+# default is unicode no message
+#set -g @dracula-git-no-repo-message ""
+#set -g @dracula-show-fahrenheit false
+
+
+
+
+
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+
+
+# Set 256 colors
+#set -s default-terminal 'tmux-256color'
+#set LANG="en_US.UTF-8"
+#setenv 'LC_ALL' 'en_IN.UTF-8'
+#setenv 'LANG' 'en_IN.UTF-8'
+
+# binding powerline
+#source /usr/share/powerline/bindings/tmux/powerline.conf
+#source /usr/lib/python3/dist-packages/powerline/bindings/tmux/powerline.conf
+
+#set-option -g status-position bottom
+#set-option -g status-style bg='#111111',fg='#dddddd'
+#set-option -g automatic-rename on
+#set-option -g status-justify left
+#set-option -g status-left-length 20
+#set-option -g status-left '#[fg=colour130]#(echo "[")#[fg=colour140]#{session_name}#[fg=colour130]#(echo "]  ")'
+#set-option -g status-right '#{whoami}#{date}'
+
+#set-option -g status-interval 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

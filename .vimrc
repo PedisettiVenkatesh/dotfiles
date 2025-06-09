@@ -33,6 +33,7 @@ map <f12> :!ctags -R .<cr>
 " start vi with NERDTree
 "autocmd VimEnter * NERDTree | wincmd p
 
+filetype plugin on
 
 call plug#begin('~/.vim/plugged')
     " The default plugin directory will be as follows:
@@ -52,6 +53,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'vim-syntastic/syntastic'
     Plug 'frazrepo/vim-rainbow'
+
+    Plug 'preservim/nerdcommenter'
 
     "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -87,22 +90,22 @@ call plug#begin('~/.vim/plugged')
     " Initialize plugin system
 call plug#end()
 
-" Airline Config
+" Airline Config ######################################
 let g:airline_powerline_fonts = 1
 "let g:airline_statusline_ontop = 1
 "let g:airline_theme='dark'
 let g:airline_theme='simple'
 "let g:airline_theme='solarized'
 "let g:airline_solarized_bg='dark'
-"let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ''
 "let g:airline#extensions#tabline#left_alt_sep = '|'
-"let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#formatter = 'default'
 "let g:airline#extensions#tabline#formatter = 'jsformatter'
 "let g:airline#extensions#tabline#formatter = 'unique_tail'
 "let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
-" Rainbow Config
+" Rainbow Config ################################
 let g:rainbow_active = 1
 let g:rainbow_load_separately = [
     \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
@@ -113,7 +116,25 @@ let g:rainbow_load_separately = [
 let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 
-
+" NerdCommenter Config ###########################
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
 
 
 
