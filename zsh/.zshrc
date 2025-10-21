@@ -117,11 +117,16 @@ alias c='printf "\033[H\033[2J"'
 alias x='exit'
 alias s='source'
 alias sz='source ~/.zshrc'
+alias sv='source ~/.vimrc'
+alias sb='source ~/.bashrc'
+alias sn='source ~/.nanorc'
+alias st='source ~/.tmux.conf'
+alias sg='source ~/.gitconfig'
 
-alias bconfig='v ~/.bashrc'
-alias zconfig="v ~/.zshrc"
-alias omz="v ~/.oh-my-zsh"
-alias vconfig='v ~/.vimrc'
+alias vb='v ~/.bashrc'
+alias vz="v ~/.zshrc"
+alias vo="v ~/.oh-my-zsh"
+alias vv='v ~/.vimrc'
 
 alias tmux='tmux -u'
 alias t='tmux -u'
