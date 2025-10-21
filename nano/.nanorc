@@ -1,0 +1,21 @@
+## Enable line numbers
+set linenumbers
+
+## Enable soft wrapping of long lines
+set softwrap
+
+## Enable mouse support
+set mouse
+
+## Show line/column position constantly
+set constantshow
+
+## Use smooth scrolling
+# set smooth
+
+## Use 4 spaces instead of tabs
+set tabsize 4
+set tabstospaces
+
+## Enable syntax highlighting (see next section)
+# include "/usr/share/nano/*.nanorc"
