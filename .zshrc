@@ -28,9 +28,6 @@ zinit light MichaelAquilina/zsh-you-should-use
 # --- Oh-My-Zsh snippets ---
 zinit ice wait"0" silent; zinit snippet OMZP::git
 zinit ice wait"0" silent; zinit snippet OMZP::sudo
-# zinit ice wait"0" silent; zinit snippet OMZP::aws
-# zinit ice wait"0" silent; zinit snippet OMZP::kubectl
-# zinit ice wait"0" silent; zinit snippet OMZP::kubectx
 zinit ice wait"0" silent; zinit snippet OMZP::command-not-found
 zinit ice wait"0" silent; zinit snippet OMZP::history
 zinit ice wait"0" silent; zinit snippet OMZP::docker
@@ -115,15 +112,15 @@ alias ls='ls --color'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias c='clear'
+# alias c='clear'
+alias c='printf "\033[H\033[2J"'
 alias x='exit'
 alias s='source'
-alias su='sudo'
 alias sz='source ~/.zshrc'
 
-alias bashconfig='v ~/.bashrc'
-alias zshconfig="v ~/.zshrc"
-alias ohmyzsh="v ~/.oh-my-zsh"
+alias bconfig='v ~/.bashrc'
+alias zconfig="v ~/.zshrc"
+alias omz="v ~/.oh-my-zsh"
 alias vconfig='v ~/.vimrc'
 
 alias tmux='tmux -u'
@@ -132,11 +129,18 @@ alias ta='t a'
 alias tat='t a -t'
 
 alias bat='batcat'
-alias v='nvim'
-alias o='code .'
+alias v='vi'
+# alias o='codium .'
 alias e='xdg-open .'
 
-alias d='docker'
+o() {
+  if [ "$#" -eq 0 ]; then
+    codium .
+  else
+    codium "$@"
+  fi
+}
+  
 alias dstart='echo "sudo systemctl start docker" && sudo systemctl start docker'
 alias dstatus='echo "sudo systemctl status docker" && sudo systemctl status docker'
 alias dstop='echo "sudo systemctl stop docker" && sudo systemctl stop docker'
@@ -147,7 +151,7 @@ alias pip='pip3'
 alias pips='pipenv shell'
 
 # --- --- ---
-source <(fzf --zsh)
+# source <(fzf --zsh)
 # eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 
@@ -158,3 +162,15 @@ export NVM_DIR="$HOME/.nvm"
 
 # --- pipx path ---
 export PATH="$PATH:$HOME/.local/bin"
+
+# export PATH="$PATH:$HOME/Android/cmdline-tools/latest/bin"
+# export ANDROID_HOME="$HOME/Android/Sdk"
+# export ANDROID_SDK_ROOT="$HOME/vyktr/Android/Sdk"
+# export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
+
+
+#function preexec() {
+#  printf "\033[H\033[2J"
+#}
+
+
