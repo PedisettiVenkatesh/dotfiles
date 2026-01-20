@@ -115,6 +115,7 @@ alias l='ls -CF'
 # alias c='clear'
 alias c='printf "\033[H\033[2J"'
 alias x='exit'
+alias hist='codium ~/.zsh_history'
 alias s='source'
 alias sz='source ~/.zshrc'
 alias sv='source ~/.vimrc'
@@ -178,4 +179,13 @@ export PATH="$PATH:$HOME/.local/bin"
 #  printf "\033[H\033[2J"
 #}
 
+source /etc/grc.zsh
 
+
+# pnpm
+export PNPM_HOME="/home/vyktr/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
